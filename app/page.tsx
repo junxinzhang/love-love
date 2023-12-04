@@ -4,9 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from './styles/Page.module.css';
 
-export const config = {
-    runtime: 'edge',
-};
+export const runtime = 'edge' // 'nodejs' (default) | 'edge'
 
 const Page = () => {
     const [daysSince, setDaysSince] = useState(0);
