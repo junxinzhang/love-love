@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     height: 100vh; /* 视窗高度 */
-    background-image: url('background.png'); /* 确保图片路径正确 */
+    background-image: url('../icons/background.png'); /* 确保图片路径正确 */
     background-size: cover; /* 确保图片覆盖整个视窗 */
     background-position: center; /* 使图片居中显示 */
     display: flex;

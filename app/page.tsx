@@ -1,17 +1,19 @@
-import Head from 'next/head';
-import styles from './Page.module.css';
+"use client";
 
-// Function to calculate the number of days since a given date
-function calculateDaysSince({dateString}: { dateString: any }) {
-    const startDate = new Date(dateString);
-    const today = new Date();
-    const timeDiff = today.getTime() - startDate.getTime();
-    return Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-}
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
+import styles from './styles/Page.module.css';
 
 const Page = () => {
-    // Use the function to calculate the number of days since June 30, 2013
-    const daysSince = calculateDaysSince({dateString: "2013-06-30"});
+    const [daysSince, setDaysSince] = useState(0);
+
+    useEffect(() => {
+        const startDate = new Date('2013-06-30');
+        const today = new Date();
+        const timeDiff = today.getTime() - startDate.getTime();
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        setDaysSince(days);
+    }, []);
 
     return (
         <div className={styles.backgroundImage}>
@@ -20,7 +22,6 @@ const Page = () => {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 
-            {/* The main content of the page */}
             <div className={styles.fullscreenWrapper}>
                 <div className={styles.content}>
                     It has been <span className={styles.xxx}>{daysSince}</span> days since we met
